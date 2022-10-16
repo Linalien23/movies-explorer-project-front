@@ -82,10 +82,6 @@
     cursor: pointer;
 }
 
-/* .header__profile-burger:hover {
-    background-image: url('../../images/burger-activ.svg');
-} */
-
 @media screen and (min-width: 769px) {
     .header__profile-burger {
         display: none;
