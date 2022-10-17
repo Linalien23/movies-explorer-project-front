@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterCheckBox from '../FilterCheckbox/FilterCheckbox';
+import FilterCheckBox from '../FilterCheckbox/FilterCheckBox';
 import magnifier from '../../images/magnifier.svg';
 import './SearchForm.css';
 

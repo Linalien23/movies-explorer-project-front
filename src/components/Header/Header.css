@@ -21,6 +21,7 @@
 
 .header-main {
     background-color: #F3C1F8;
+    justify-content: space-between;
 }
 
 .header__logo {
