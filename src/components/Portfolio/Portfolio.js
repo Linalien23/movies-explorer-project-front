@@ -13,19 +13,16 @@ function Portfolio() {
                             <p className='portfolio__link-text'>Статичный сайт</p> 
                             <img className='portfolio__link-image' src={arrow} alt='Стрелка'/>
                          </a>   
+                         <hr class="portfolio__line"></hr>
                     </li>
-                    
-
-                    <hr className="portfolio__line"/>
 
                     <li className = 'portfolio__link'>
                         <a href='https://linalien23.github.io/russian-travel/' target='blank' className='portfolio__nav-link'>
                             <p className='portfolio__link-text'>Адаптивный сайт</p> 
                             <img className='portfolio__link-image' src={arrow} alt='Стрелка'/>
                         </a>
+                        <hr class="portfolio__line"></hr>
                     </li>
-
-                    <hr className="portfolio__line"/>
 
                     <li className = 'portfolio__link'>
                         <a href='https://linalien.nomoredomains.sbs' target='blank' className='portfolio__nav-link'>
