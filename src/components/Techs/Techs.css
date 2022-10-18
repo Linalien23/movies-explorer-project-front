@@ -9,6 +9,12 @@
     }
 }
 
+@media screen and (max-width: 350px) {
+    .techs {
+        background-color: white;
+    }
+}
+
 .techs__title {
     width: 600px;
     font-size: 50px;
@@ -73,6 +79,18 @@
     .techs__tabs {
         margin: 0 60px;
         justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .techs__tabs {
+        margin: 0 74px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .techs__tabs {
+        margin: 0 70px;
     }
 }
 

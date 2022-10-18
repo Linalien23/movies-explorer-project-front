@@ -42,8 +42,8 @@
 }
 
 .footer__copyright-text {
-    color:white;
     margin: 0;
+    color: #A0A0A0;
 }
 
 .footer__copyright-links {
@@ -63,8 +63,8 @@
 }
 
 .footer__copyright-link {
-    color: white;
     text-decoration: none;
+    color: black;
 }
 
 .footer__copyright-link:hover {
