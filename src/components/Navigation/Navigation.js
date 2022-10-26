@@ -8,16 +8,16 @@ function Navigation ({isOpen, onClose}) {
         <section className={'navigation' +  (isOpen?' navigation_visible':'')}>
             <div className="navigation__container">
                 <nav className="navigation__links">
-                    <Link to='/' className='navigation__link'>Главная</Link>
-                    <Link to='/movies' className='navigation__link'>Фильмы</Link>
-                    <Link to='saved_movies' className='navigation__link'>Сохраненные фильмы</Link>
+                    <Link to='/' className='navigation__link' onClick={onClose}>Главная</Link>
+                    <Link to='/movies' className='navigation__link' onClick={onClose}>Фильмы</Link>
+                    <Link to='saved_movies' className='navigation__link' onClick={onClose}>Сохраненные фильмы</Link>
                 </nav>
 
-                <Link className = 'navigation__btn' to='/profile'>
+                <Link className = 'navigation__btn' to='/profile' onClick={onClose}>
                     <img className='navigation__btn-icon' src={ButtonImage} alt='Профиль' />
                     <p className='navigation__btn-text'>Аккаунт</p>
                 </Link>
-                <button className='navigation__closebtn' onClick={onClose} type='button' />
+                <button className='navigation__closeBtn' onClick={onClose} type='button' />
             </div>    
         </section>
     )

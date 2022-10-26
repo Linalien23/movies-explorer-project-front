@@ -71,7 +71,7 @@
 }
 
 
-.moviesCard__btn:focus {
+.moviesCard__btn_active {
     background-color: #2BE080;
     cursor: pointer;
     width: 16px;
@@ -81,7 +81,7 @@
     margin-right: 12px;
 }
 
-.moviesCard__deleteButton {
+.moviesCard__deleteBtn {
     cursor: pointer;
     width: 16px;
     height: 16px;
@@ -91,6 +91,6 @@
     margin-right: 12px;;
 }
 
-.moviesCard__deleteButton:hover {
+.moviesCard__deleteBtn:hover {
     background-image: url('../../images/delete-btn-hover.svg');
 }

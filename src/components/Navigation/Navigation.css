@@ -163,12 +163,12 @@
     height: 14px;
 }
 
-.navigation__closebtn {
+.navigation__closeBtn {
     display: none;
 }
 
 @media screen and (max-width: 768px) {
-    .navigation__closebtn {
+    .navigation__closeBtn {
         display: block;
         position: absolute;
         top: 25px;

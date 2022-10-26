@@ -76,7 +76,7 @@
     }
 }
 
-.profile__edit-form-button{
+.profile__edit-form-btn{
     background: inherit;
     font-size: 13px;
     font-weight: normal;
@@ -89,16 +89,16 @@
 }
 
 @media screen and (max-width: 540px) {
-    .profile__edit-form-button {
+    .profile__edit-form-btn {
         font-size: 12px;
     }
 }
 
-.profile__edit-form-button:hover {
+.profile__edit-form-btn:hover {
     color: #EE3465;
 }
 
-.profile__exit-button {
+.profile__exit-btn {
     background: inherit;
     font-size: 13px;
     font-weight: 500;
@@ -109,11 +109,11 @@
 }
 
 @media screen and (max-width: 540px) {
-    .profile__exit-button {
+    .profile__exit-btn {
         font-size: 12px;
     }
 }
 
-.profile__exit-button:hover {
+.profile__exit-btn:hover {
     color: #c90035;
 }
