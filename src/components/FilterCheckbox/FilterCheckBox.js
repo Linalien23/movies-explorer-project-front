@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './FilterCheckBox.css';
 
-function FilterCheckBox({ onShort, isShort, movies, searchMovie, text }) {
+function FilterCheckBox({ onShort, movies, searchMovie, isShort, text }) {
 
     const [isClicked, setIsClicked] = useState(false);
 
