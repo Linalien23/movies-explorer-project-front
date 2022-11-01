@@ -46,6 +46,7 @@ function SearchForm({ searchMovie, movies, onShort, isShort }) {
                     })}
                     onChange={(e) => handleChangeValue(e)}></input>
                 <button className='searchForm__btn' type='submit'></button>
+                <span className='searchForm__input-error-text'>{errors.text?.message}</span>
             </form>
 
             <FilterCheckBox />
