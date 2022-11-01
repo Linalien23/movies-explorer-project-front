@@ -14,11 +14,11 @@ function MoviesCard(props) {
 
     return (
         <li className='moviesCard'>
-            <a href={props.trailerLink} target='blank' className='moviesCard__link'> // ссылка на трейлер — в trailerLink
+            <a href={props.trailerLink} target='blank' className='moviesCard__link'>
                 <img className='moviesCard__image' src={props.image} alt={props.nameRu} />
             </a>
             <div className='moviesCards__information'>
-                <h2 className='moviesCard__title'>{props.nameRU}</h2> // название фильма на русском языке находится в свойстве nameRU
+                <h2 className='moviesCard__title'>{props.nameRU}</h2>
                 <p className='moviesCard__description'>{`${time()}`}</p>
             </div>
 
