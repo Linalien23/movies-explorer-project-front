@@ -3,7 +3,7 @@ import './Preloader.css'
 
 const Preloader = ({ isLoad }) => {
     return (
-        <div className={'preloader' + (isLoad ? 'preloader_visible' : '')}>
+        <div className={'preloader' + (isLoad ? ' preloader_visible' : '')}>
             <div className='preloader__container'>
                 <span className='preloader__round'></span>
             </div>
