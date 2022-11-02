@@ -49,7 +49,11 @@ function SearchForm({ searchMovie, movies, onShort, isShort }) {
                 <span className='searchForm__input-error-text'>{errors.text?.message}</span>
             </form>
 
-            <FilterCheckBox />
+            <FilterCheckBox onShort={onShort} 
+                            searchMovie= {searchMovie} 
+                            movies = {movies} 
+                            isShort={isShort} 
+                            text = {newValue}/>
         </section>
     )
 }
