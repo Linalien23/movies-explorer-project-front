@@ -75,6 +75,13 @@
     }
 }
 
+.profile__massage{
+    text-align: center;
+    font-size: 13px;
+    color: #EE3465;
+    padding-top: 30px;
+}
+
 .profile__edit-form-btn{
     background: inherit;
     font-size: 13px;

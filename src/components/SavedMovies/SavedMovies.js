@@ -24,7 +24,6 @@ function SavedMovies({ movieCards, onDeleteMovie, searchMovie, onShort, isShort,
 
             <p className='movies__massage'> {message}</p>
 
-
             {(!isSearch) ? (<MoviesCardList movieCards={movieCards} onDeleteMovie={onDeleteMovie} />)
                 : (<MoviesCardList movieCards={searchedMovie} onDeleteMovie={onDeleteMovie} />)}
 

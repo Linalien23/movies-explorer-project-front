@@ -67,11 +67,11 @@ function Profile(props) {
 
                     <p className='profile__massage'> {props.message}</p>
 
-                    <button disabled={!isValid} className={'profile__edit-form-btn' + (!isValid ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
+                    <button disabled={!isValid} className={'profile__edit-form-btn' + (!isValid ? ' form__btn_disabled' : '')} type='submit' onClick={() => props.onUpdateUser()}>Редактировать</button>
 
                 </form>
 
-                <button className='profile__exit-btn' type='button' onClick={() => props.onLogAut()}>Выйти из аккаунта</button>
+                <button className='profile__exit-btn' type='button' onClick={() => props.onLogOut()}>Выйти из аккаунта</button>
             </div>
         </section>
     );

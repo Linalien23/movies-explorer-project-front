@@ -249,7 +249,7 @@ function App() {
         setIsNavigationOpen(false);
     }
 
-    function onLogAut() {
+    function onLogOut() {
         localStorage.removeItem('token')
         localStorage.removeItem('text')
         localStorage.removeItem('movies')
@@ -339,7 +339,7 @@ function App() {
                             isOpen={isNavigationOpen}
                             onClose={onClose}
                             onClick={setIsNavigationOpen}
-                            onLogAut={onLogAut}
+                            onLogOut={onLogOut}
                             onUpdateUser={onUpdateUser}
                             message={message}
                             onSetMessage={setMessage}>

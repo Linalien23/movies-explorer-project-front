@@ -37,7 +37,6 @@
 }
 
 .form__btn {
-    width: 396px;
     height: 45px;
     background-color: #000000;
     cursor: pointer;
@@ -51,16 +50,7 @@
 }
 
 .form__btn_disabled {
-    background-color: #818b9b;
-    width: 396px;
-    height: 45px;
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 3px;
-    margin-top: 179px;
-    margin-bottom: 16px;
-    border: none;
+    color: #818b9b;
 }
 
 .form__btn:hover {
