@@ -66,8 +66,8 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
       </ul>
 
       {(movieCards.length > moviesOnDisplay || movieCards.length < !3) ? ( // Если карточек больше трёх, под ними появляется кнопка «Ещё»
-        <section className='movies__moreMovies'>
-          <button className='movies__moreMovies-btn' type='button' onClick={() => loadMoreMoviesCards()}>Ещё</button>
+        <section className='movies__more'>
+          <button className='movies__more-btn' type='button' onClick={() => loadMoreMoviesCards()}>Ещё</button>
         </section>
       ) : null}
 
