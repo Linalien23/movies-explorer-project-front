@@ -25,7 +25,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 32px 20px;
-    justify-content: center;
 }
 
 @media screen  and (max-width: 768px) {

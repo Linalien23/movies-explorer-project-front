@@ -25,6 +25,7 @@ function SearchForm({ searchMovie, movies, onShort, isShort }) {
     const checkKeyDown = (e) => {
         if (e.code === 'Enter') {
             e.preventDefault();
+            handleSubmit(onSubmit)();
         }
     };
 
