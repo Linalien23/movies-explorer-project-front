@@ -108,6 +108,10 @@
     color: #EE3465;
 }
 
+.navigation__link:active {
+    color: #EE3465;
+}
+
 .navigation__link:first-child{
     display: none;
 }

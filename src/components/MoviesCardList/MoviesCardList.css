@@ -30,11 +30,13 @@
 @media screen  and (max-width: 768px) {
     .movieCardList__elements{
         gap: 36px 30px;
+        justify-content: center;
     }
 }
 
 @media screen  and (max-width: 540px) {
     .movieCardList__elements{
         gap: 20px 0;
+        justify-content: center;
     }
 }
