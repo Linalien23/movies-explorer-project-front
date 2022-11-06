@@ -108,10 +108,6 @@
     color: #EE3465;
 }
 
-.navigation__link:active {
-    color: #EE3465;
-}
-
 .navigation__link:first-child{
     display: none;
 }
@@ -125,7 +121,7 @@
         color: #EE3465;
         border-bottom: 1px solid #EE3465;
     }
-} 
+}
 
 .navigation__btn {
     width: 100px;

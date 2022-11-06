@@ -7,7 +7,7 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
 
   const [moviesOnDisplay, setMoviesOnDisplay] = useState(0);
 
-  const display = window.innerWidth;
+  const [display, setDisplay] = useState(window.innerWidth);
 
   function loadMovieCards() {
 
@@ -26,6 +26,7 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
   window.resize = function () {
     setTimeout(() => {
       loadMovieCards()
+      setDisplay(window.innerWidth)
     }, 500)
   }
 
