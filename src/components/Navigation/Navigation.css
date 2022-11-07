@@ -123,6 +123,10 @@
     }
 }
 
+.navigation__link.active {
+    color: #EE3465;
+}
+
 .navigation__btn {
     width: 100px;
     height: 32px;

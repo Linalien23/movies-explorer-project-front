@@ -7,7 +7,13 @@ import './Register.css';
 
 function Register({ onSubmit, isErrorMessage }) {
 
-    const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onChange' });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid },
+    } = useForm({
+        mode: 'onChange'
+    });
 
     function submit(data) {
         onSubmit(data);
@@ -22,7 +28,7 @@ function Register({ onSubmit, isErrorMessage }) {
             <h1 className='register__title'>Добро пожаловать!</h1>
 
             <Form onSubmit={handleSubmit(submit)}>
-                <label className='form__label' htmlFor='name'> Имя </label>
+                <label className='form__label' htmlFor='name'>Имя</label>
                 <input className='form__input'
                     type='text'
                     name='name'

@@ -1,13 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './Profile.css';
 import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 
 function Profile(props) {
 
-    const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onChange' });
-
     const user = useContext(CurrentUserContext);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid },
+      } = useForm({
+        mode: 'onChange',
+        defaultValues: {
+          name: user.name,
+          email: user.email
+        }
+      });
+
+    const userName = useState(user.name);
+    const email = useState(user.email);
 
     function submit(data) {
         if (data.name !== user.name || data.email !== user.email) {
@@ -19,6 +32,8 @@ function Profile(props) {
             return !isValid
         }
     }
+  
+    const isDataNotChanged = user.name === userName && user.email === email;
 
     return (
         <section className="profile">
@@ -67,11 +82,11 @@ function Profile(props) {
 
                     <p className='profile__massage'> {props.message}</p>
 
-                    <button disabled={!isValid} className={'profile__edit-form-btn' + (!isValid ? ' form__btn_disabled' : '')} type='submit' onClick={() => props.onUpdateUser()}>Редактировать</button>
+                    <button disabled={!isValid || isDataNotChanged} className={'profile__edit-form-btn' + (!isValid || isDataNotChanged ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
 
                 </form>
 
-                <button className='profile__exit-btn' type='button' onClick={() => props.onLogOut()}>Выйти из аккаунта</button>
+                <button className='profile__exit-btn' type='button' onClick={() => props.onLogAut()}>Выйти из аккаунта</button>
             </div>
         </section>
     );
