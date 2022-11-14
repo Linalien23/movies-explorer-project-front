@@ -19,8 +19,16 @@ function Profile(props) {
         }
       });
 
-    const userName = useState(user.name);
-    const email = useState(user.email);
+    const [userName] = useState(user.name);
+    const [email] = useState(user.email);
+    
+    // const handleUserNameChange = (event) => {
+    //     setUserName(event.target.value);
+    //   };
+  
+    // const handleEmailChange = (event) => {
+    //   setEmail(event.target.value);
+    // };
 
     function submit(data) {
         if (data.name !== user.name || data.email !== user.email) {
@@ -35,11 +43,13 @@ function Profile(props) {
   
     const isDataNotChanged = user.name === userName && user.email === email;
 
+    const isButtonDisabled = !isValid || isDataNotChanged;
+
     return (
         <section className="profile">
 
             <div className='profile__content'>
-                <h1 className='profile__title'> Привет, {user.name}</h1>
+                <h1 className='profile__title'> Привет, {user.name}!</h1>
 
                 <form className='profile__edit-form' onSubmit={handleSubmit(submit)}>
 
@@ -82,11 +92,11 @@ function Profile(props) {
 
                     <p className='profile__massage'> {props.message}</p>
 
-                    <button disabled={!isValid || isDataNotChanged} className={'profile__edit-form-btn' + (!isValid || isDataNotChanged ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
+                    <button disabled={isButtonDisabled} className={'profile__edit-form-btn' + (!isValid ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
 
                 </form>
 
-                <button className='profile__exit-btn' type='button' onClick={() => props.onLogAut()}>Выйти из аккаунта</button>
+                <button className='profile__exit-btn' type='button' onClick={() => props.onLogOut()}>Выйти из аккаунта</button>
             </div>
         </section>
     );
