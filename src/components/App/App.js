@@ -4,7 +4,7 @@ import './App.css';
 import * as auth from '../../utils/auth.js';
 import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
-import { ShortfilmTime } from '../../utils/constants.js'
+import { shortfilmTime } from '../../utils/constants.js'
 
 import NotFound from '../NotFound/NotFound.js';
 import Main from '../Main/Main.js';
@@ -133,7 +133,7 @@ function App() {
     }
 
     function searchMovie(text, movies) {
-        const moviesFilter = movies.filter((item) => (item.nameRU.toLowerCase().includes(text.toLowerCase())) && (isShort === true ? item.duration <= ShortfilmTime : ' '));
+        const moviesFilter = movies.filter((item) => (item.nameRU.toLowerCase().includes(text.toLowerCase())) && (isShort === true ? item.duration <= shortfilmTime : ' '));
         if (location.pathname === '/movies') {
             setMessageOfSearch('')
             setIsLoad(true);

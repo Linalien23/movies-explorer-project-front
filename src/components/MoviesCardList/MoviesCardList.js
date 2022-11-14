@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.js';
-import { CountOfMoviesOnPC, CountOfMoviesOnPhone } from '../../utils/constants.js';
+import { 
+  largeScreen, 
+  middleScreen, 
+  smallScreen, 
+  countOfMoviesOnDesktop, 
+  countOfMoviesOnProTab, 
+  countOfMoviesOnTab, 
+  countOfMoviesOnPhone } from '../../utils/constants.js';
 
 function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteMovie, handleAction }) {
 
@@ -10,15 +17,15 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
   const [display, setDisplay] = useState(window.innerWidth);
 
   function loadMovieCards() {
-
-    if (display > 1006) { // Ширина 1280px — 12 карточек по 3 в ряд
+    if (display > middleScreen) { 
       setMoviesOnDisplay(12);
-    } else if (display > 750) { // Ширина 768px — 8 карточек по 2 в ряд
+    } else if (display < middleScreen && display > smallScreen) { // Ширина 768px — 8 карточек по 2 в ряд
       setMoviesOnDisplay(8);
-    } else if (display < 750) { // Ширина от 320px до 480px — 5 карточек по 1 в ряд
+    } else if (display < smallScreen) { // Ширина от 320px до 480px — 5 карточек по 1 в ряд
       setMoviesOnDisplay(5);
     }
   }
+
   useEffect(() => {
     loadMovieCards()
   }, [])
@@ -31,12 +38,14 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
   }
 
   function loadMoreMoviesCards() {
-    if (display > 1006) {
-      setMoviesOnDisplay(moviesOnDisplay + CountOfMoviesOnPC)
-    } else if (display > 750) {
-      setMoviesOnDisplay(moviesOnDisplay + CountOfMoviesOnPhone)
-    } else if (display < 750) {
-      setMoviesOnDisplay(moviesOnDisplay + CountOfMoviesOnPhone)
+    if (display > largeScreen) {
+      setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnDesktop)
+    } else if (display < largeScreen && display > middleScreen) {
+      setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnProTab)
+    } else if (display < middleScreen && display > smallScreen) {
+      setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnTab)
+    } else if (display < smallScreen) {
+      setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnPhone)
     }
   }
 
