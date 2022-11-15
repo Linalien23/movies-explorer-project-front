@@ -1,22 +1,16 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
 import './NotFound.css';
+import { Link } from 'react-router-dom';
 
-function NotFound () {
-
-    const history = useHistory();
-
-    function goBackToPreviousPage () {
-        history.goBack()
-    }
+function NotFound() {
 
     return (
-        <div className="notFound">
-            <div className = "notFound__container">
-                <h2 className="notFound__title">404</h2>     
-                <p className="notFound__text">Страница не найдена</p>
+        <div className='notFound'>
+            <div className='notFound__container'>
+                <h2 className='notFound__title'>404</h2>
+                <p className='notFound__text'>Страница не найдена</p>
             </div>
-            <button onClick = {()=> goBackToPreviousPage()} className = "notFound__link">Назад</button>
+            <Link className='notFound__link' to={'/'}>Назад</Link>
         </div>
     );
 }

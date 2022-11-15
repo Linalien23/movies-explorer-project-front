@@ -19,16 +19,16 @@ function Profile(props) {
         }
       });
 
-    const [userName] = useState(user.name);
-    const [email] = useState(user.email);
+    const [userName, setUserName] = useState(user.name);
+    const [email, setEmail] = useState(user.email);
     
-    // const handleUserNameChange = (event) => {
-    //     setUserName(event.target.value);
-    //   };
+    const handleUserNameChange = (event) => {
+        setUserName(event.target.value);
+      };
   
-    // const handleEmailChange = (event) => {
-    //   setEmail(event.target.value);
-    // };
+    const handleEmailChange = (event) => {
+      setEmail(event.target.value);
+    };
 
     function submit(data) {
         if (data.name !== user.name || data.email !== user.email) {
@@ -54,7 +54,8 @@ function Profile(props) {
                 <form className='profile__edit-form' onSubmit={handleSubmit(submit)}>
 
                     <label className='profile__edit-form-label' htmlFor='name'>Имя</label>
-                    <input className='profile__edit-form-input'
+                    <input className='profile__edit-form-input' 
+                        onChange={handleUserNameChange}
                         name='name'
                         type='text'
                         id='name'
@@ -77,6 +78,7 @@ function Profile(props) {
 
                     <label className='profile__edit-form-label' htmlFor='email'>E-mail</label>
                     <input className='profile__edit-form-input'
+                        onChange={handleEmailChange}
                         name='email'
                         type='email'
                         id='email'
@@ -92,7 +94,7 @@ function Profile(props) {
 
                     <p className='profile__massage'> {props.message}</p>
 
-                    <button disabled={isButtonDisabled} className={'profile__edit-form-btn' + (!isValid ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
+                    <button disabled={isButtonDisabled} className={'profile__edit-form-btn' + ({isButtonDisabled} ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
 
                 </form>
 
