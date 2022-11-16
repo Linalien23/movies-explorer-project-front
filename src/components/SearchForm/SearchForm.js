@@ -22,12 +22,12 @@ function SearchForm({ searchMovie, movies, onShort, isShort }) {
         }
     }
 
-    const checkKeyDown = (e) => {
-        if (e.code === 'Enter') {
-            e.preventDefault();
-            handleSubmit(onSubmit)();
-        }
-    };
+    // const checkKeyDown = (e) => {
+    //     if (e.code === 'Enter') {
+    //         e.preventDefault();
+    //         handleSubmit(onSubmit)();
+    //     }
+    // };
 
     function handleChangeValue(e) {
         setNewValue(e.target.value);
@@ -35,7 +35,7 @@ function SearchForm({ searchMovie, movies, onShort, isShort }) {
 
     return (
         <section className='searchForm'>
-            <form className='searchForm__Form' onSubmit={handleSubmit(onSubmit)} onKeyDown={(e) => checkKeyDown(e)} noValidate>
+            <form className='searchForm__Form' onSubmit={handleSubmit(onSubmit)} noValidate>
                 <img className='searchForm__img-mag' src={magnifier} alt='Лупа' />
                 <input className='searchForm__input'
                     placeholder='Фильм'
@@ -45,7 +45,7 @@ function SearchForm({ searchMovie, movies, onShort, isShort }) {
                         required: 'Введите ключевое слово',
                         value: location.pathname === '/movies' ? newValue : ''
                     })}
-                    onChange={(e) => handleChangeValue(e)}></input>
+                    onChange={(e) => handleChangeValue(e)} ></input>
                 <button className='searchForm__btn' type='submit'></button>
                 <span className='searchForm__input-error-text'>{errors.text?.message}</span>
             </form>

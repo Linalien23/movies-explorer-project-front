@@ -16,12 +16,12 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
 
   const [display, setDisplay] = useState(window.innerWidth);
 
-  function loadMovieCards() {
+  const loadMovieCards = () => {
     if (display > middleScreen) { 
       setMoviesOnDisplay(12);
-    } else if (display < middleScreen && display > smallScreen) { // Ширина 768px — 8 карточек по 2 в ряд
+    } else if (display <= middleScreen && display >= smallScreen) { // Ширина 768px — 8 карточек по 2 в ряд
       setMoviesOnDisplay(8);
-    } else if (display < smallScreen) { // Ширина от 320px до 480px — 5 карточек по 1 в ряд
+    } else if (display <= smallScreen) { // Ширина от 320px до 480px — 5 карточек по 1 в ряд
       setMoviesOnDisplay(5);
     }
   }
@@ -37,14 +37,14 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
     }, 500)
   }
 
-  function loadMoreMoviesCards() {
+  const loadMoreMoviesCards = () => {
     if (display > largeScreen) {
       setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnDesktop)
-    } else if (display < largeScreen && display > middleScreen) {
+    } else if (display <= largeScreen && display >= middleScreen) {
       setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnProTab)
-    } else if (display < middleScreen && display > smallScreen) {
+    } else if (display <= middleScreen && display >= smallScreen) {
       setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnTab)
-    } else if (display < smallScreen) {
+    } else if (display <= smallScreen) {
       setMoviesOnDisplay(moviesOnDisplay + countOfMoviesOnPhone)
     }
   }
@@ -75,9 +75,9 @@ function MoviesCardList({ movieCards, className, isLoad, isSavedMovie, onDeleteM
 
       </ul>
 
-      {(movieCards.length > moviesOnDisplay || movieCards.length < !3) ? ( // Если карточек больше трёх, под ними появляется кнопка «Ещё»
+      {(movieCards.length > moviesOnDisplay || movieCards.length < !3) ? (
         <section className='movies__more'>
-          <button className='movies__more-btn' type='button' onClick={() => loadMoreMoviesCards()}>Ещё</button>
+          <button className='movies__more-btn' type='button' onClick={loadMoreMoviesCards}>Ещё</button>
         </section>
       ) : null}
 
