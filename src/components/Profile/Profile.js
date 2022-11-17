@@ -1,32 +1,91 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import './Profile.css';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 
-function Profile (props) {
+function Profile(props) {
+
+    const user = useContext(CurrentUserContext);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid, isDirty },
+        reset
+    } = useForm({
+        mode: 'onChange',
+        defaultValues: {
+            name: user.name,
+            email: user.email
+        }
+    });
+
+    function submit(data) {
+        if (data.name !== user.name || data.email !== user.email) {
+            props.onUpdateUser({
+                name: data.name,
+                email: data.email,
+            });
+            reset()
+        } else {
+            return !isValid
+        }
+    }
+
+    const isButtonDisabled = !isValid || !isDirty;
+
     return (
         <section className="profile">
-            
+
             <div className='profile__content'>
-                <h1 className='profile__title'> Привет, {props.name}</h1>
+                <h1 className='profile__title'> Привет, {user.name}!</h1>
 
-                <form className='profile__edit-form'>
+                <form className='profile__edit-form' onSubmit={handleSubmit(submit)}>
 
-                    <label className='profile__edit-form-label' for='name'>Имя</label> 
-                    <input className='profile__edit-form-input' name='name' type='text' id='name' required value={props.name || ''} />
-                    <span class='profile__edit-form-input-text'>Что-то пошло не так...</span>                   
-                    
-                    <hr className='profile__info-line'/>
+                    <label className='profile__edit-form-label' htmlFor='name'>Имя</label>
+                    <input className='profile__edit-form-input'
+                        name='name'
+                        type='text'
+                        id='name'
+                        {...register('name', {
+                            required: true,
+                            pattern: /[a-zа-яё ]/i,
+                            minLength: 2,
+                            maxLength: 30
+                        })}
+                    />
+                    <span className='profile__edit-form-input-text'>
+                        {errors.name?.type === "required" && "Поле обязательно для заполнения"}
+                        {errors.name?.type === "pattern" && "Введены недопустимые символы"}
+                        {errors.name?.type === "minLength" && "Введите не менее 2-х символов"}
+                        {errors.name?.type === "maxLength" && "Введено максимальное количество символов"}
+                    </span>
 
-                    <label className='profile__edit-form-label' for='email'>E-mail</label> 
-                    <input className='profile__edit-form-input' name='email' type='email' id='email' required value={props.email || ''} />
-                    <span class='profile__edit-form-input-text'>Что-то пошло не так...</span> 
-                    
-                    <button className='profile__edit-form-button' type='submit'>Редактировать</button>
+                    <hr className='profile__info-line' />
+
+                    <label className='profile__edit-form-label' htmlFor='email'>E-mail</label>
+                    <input className='profile__edit-form-input'
+                        name='email'
+                        type='email'
+                        id='email'
+                        {...register('email', {
+                            required: true,
+                            pattern: /([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})/
+                        })} />
+                    <span className='profile__edit-form-input-text'>
+                        {errors.email?.type === "required" && "Поле обязательно для заполнения"}
+                        {errors.email?.type === "pattern" && "Неверный формат электронной почты или введены недопустимые символы"}
+                    </span>
+
+                    <p className='profile__massage'> {props.message}</p>
+
+                    <button disabled={isButtonDisabled} className={'profile__edit-form-btn' + (isButtonDisabled ? ' form__btn_disabled' : '')} type='submit'>Редактировать</button>
 
                 </form>
 
-                <button className='profile__exit-button' type='submit'>Выйти из аккаунта</button>
+                <button className='profile__exit-btn' type='button' onClick={() => props.onLogOut()}>Выйти из аккаунта</button>
             </div>
-        </section>     
+        </section>
     );
 }
 

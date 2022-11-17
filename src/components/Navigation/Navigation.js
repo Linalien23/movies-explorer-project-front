@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './Navigation.css'
 import ButtonImage from '../../images/icon-main.svg';
 
@@ -8,16 +8,22 @@ function Navigation ({isOpen, onClose}) {
         <section className={'navigation' +  (isOpen?' navigation_visible':'')}>
             <div className="navigation__container">
                 <nav className="navigation__links">
-                    <Link to='/' className='navigation__link'>Главная</Link>
-                    <Link to='/movies' className='navigation__link'>Фильмы</Link>
-                    <Link to='saved_movies' className='navigation__link'>Сохраненные фильмы</Link>
+                    <NavLink to='/' className='navigation__link' onClick={onClose}>Главная</NavLink>
+                    <NavLink 
+                        className={({ isActive }) => (isActive ? 'navigation__link.active' : 'navigation__link')}
+                        to='/movies'
+                        onClick={onClose}>Фильмы</NavLink>
+                    <NavLink
+                        className={({ isActive }) => (isActive ? 'navigation__link.active' : 'navigation__link')}
+                        to='/saved_movies'
+                        onClick={onClose}>Сохраненные фильмы</NavLink>
                 </nav>
 
-                <Link className = 'navigation__btn' to='/profile'>
+                <NavLink to='/profile' className = 'navigation__btn' onClick={onClose}>
                     <img className='navigation__btn-icon' src={ButtonImage} alt='Профиль' />
                     <p className='navigation__btn-text'>Аккаунт</p>
-                </Link>
-                <button className='navigation__closebtn' onClick={onClose} type='button' />
+                </NavLink>
+                <button className='navigation__closeBtn' onClick={onClose} type='button' />
             </div>    
         </section>
     )

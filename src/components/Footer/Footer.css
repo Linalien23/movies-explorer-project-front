@@ -13,6 +13,10 @@
     }
 }
 
+.footer_none {
+    display: none;
+}
+
 .footer__text {
     color: #A0A0A0;
     text-align: center;
@@ -68,5 +72,5 @@
 }
 
 .footer__copyright-link:hover {
-    color: #4285F4;
+    color: #FF4062;
 }
